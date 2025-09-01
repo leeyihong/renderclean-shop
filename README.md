@@ -1,4 +1,4 @@
-# Braintree Payment E-commernce Demo
+# Braintree Payment E-commerce Demo
 
 ## Steps to run it locally
 
@@ -14,5 +14,9 @@ PRIVATE_KEY=
 5. Visit http://localhost:3000
 
 
-For more information, checkout the developer document https://developer.paypal.com/braintree/docs/start/overview/  
-Sign up for braintree at : https://apply.braintreegateway.com/signup/sandbox  
+For more information, checkout the [developer document](https://developer.paypal.com/braintree/docs/start/overview/)
+and sign up for [braintree sandbox](https://apply.braintreegateway.com/signup/sandbox)
+
+# 
+# Live Demo
+https://renderclean-shop.onrender.com/
