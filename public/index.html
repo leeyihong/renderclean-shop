@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleaning Supplies Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Braintree Client SDK -->
+    <script src="https://js.braintreegateway.com/web/dropin/1.45.0/js/dropin.min.js"></script>
+</head>
+
+<body class="p-6">
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">Cleaning Supplies Shop</h1>
+            <p class="mt-2 text-lg text-gray-600">Your one-stop shop for a sparkling clean home!</p>
+        </header>
+
+        <!-- Main Product Grid -->
+        <main id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Products will be generated here by JavaScript -->
+        </main>
+        
+        <!-- Goodwill Donation Section -->
+        <section class="mt-12 p-8 bg-gray-100 rounded-2xl shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Goodwill Donation</h2>
+            <div class="flex flex-col sm:flex-row items-center justify-between bg-white p-6 rounded-xl shadow-md">
+                <span class="font-medium text-gray-700">Add a Goodwill Donation:</span>
+                <div class="flex items-center mt-4 sm:mt-0">
+                    <span class="text-lg font-semibold mr-2">$</span>
+                    <input type="number" id="donation-amount" value="5.00" min="0" step="0.50" class="w-24 border border-gray-300 p-2 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button id="add-donation-btn" class="ml-4 px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                        Add
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section class="mt-8 p-8 bg-gray-100 rounded-2xl shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Your Cart</h2>
+            <!-- Cart Display -->
+            <div id="cart-container" class="bg-white p-6 rounded-xl shadow-md min-h-[100px] mb-6 hidden">
+                <ul id="cart-items" class="divide-y divide-gray-200">
+                    <!-- Cart items will be rendered here -->
+                </ul>
+                <div id="cart-summary" class="mt-4 pt-4 border-t border-gray-200 text-right">
+                    <span class="text-xl font-bold text-gray-800">Total: $<span id="cart-total">0.00</span></span>
+                </div>
+            </div>
+            
+            <!-- Checkout Button -->
+            <div class="text-right mt-6">
+                <button id="checkout-btn" class="px-8 py-3 bg-green-600 text-white font-bold text-lg rounded-xl shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors" disabled>
+                    Proceed to Checkout
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-overlay">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8">
+            
+            <!-- Checkout Summary View -->
+            <div id="summary-view">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Checkout Summary</h2>
+                <div id="modal-content" class="text-gray-700 space-y-2">
+                    <!-- Summary details will be populated here -->
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <button id="add-more-btn" class="px-4 py-2 bg-gray-400 text-white font-semibold rounded-lg hover:bg-gray-500 transition-colors">Add More Items</button>
+                    <button id="payment-btn" class="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors">Pay Now</button>
+                </div>
+            </div>
+
+            <!-- Payment Confirmation View -->
+            <div id="payment-view" class="hidden text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Payment Details</h2>
+                <div class="bg-gray-100 p-6 rounded-xl mb-6">
+                    <p class="text-xl font-medium text-gray-700">Your total is:</p>
+                    <p class="text-5xl font-extrabold text-green-600 mt-2">$<span id="payment-total">0.00</span></p>
+                </div>
+                <!-- todo: add the payment UI here -->
+                
+                <div id="dropin-container"></div>
+                <button id="purchase-btn" disabled>Loading...</button>
+                <!--class="px-8 py-3 bg-blue-600 text-white font-bold text-lg rounded-xl shadow-lg hover:bg-blue-700 transition-colors w-full"-->
+                <div id="status"></div>
+
+                <!-- <button id="pay-now-btn" class="px-8 py-3 bg-blue-600 text-white font-bold text-lg rounded-xl shadow-lg hover:bg-blue-700 transition-colors w-full">Pay Now</button> -->
+                <button id="back-to-summary-btn" class="mt-4 px-4 py-2 bg-gray-400 text-white font-semibold rounded-lg hover:bg-gray-500 transition-colors">Back to Summary</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>

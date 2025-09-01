@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f9;
+}
+.product-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#checkout-btn[disabled] {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#dropin-container {
+  margin-bottom: 20px;
+}
+
+#purchase-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #f05f9a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#purchase-btn:hover:not([disabled]) {
+  background-color: #e91e63;
+}
+
+#purchase-btn[disabled] {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#status {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  min-height: 20px;
+}
