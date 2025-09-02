@@ -67,6 +67,37 @@ const button = document.getElementById('purchase-btn');
 const statusDiv = document.getElementById('status');
 let instance;
 
+// For authentication status
+const authStatus = document.getElementById('auth-status');
+// Check if customer is registered
+const customerId = localStorage.getItem('customerId');
+const customerEmail = localStorage.getItem('customerEmail');
+
+function clearCustomers() {
+    localStorage.clear();
+    window.location.reload();
+}
+
+// Function to update authentication status in the header
+function updateCustomerStatus() {
+    if (customerId && customerEmail) {
+        authStatus.innerHTML = `
+        <p style="margin: 0; color:rgb(248, 249, 252);">
+            🪪 Customer ID: <strong>${customerId}</strong> | 
+            ✉️ Email: <strong>${customerEmail}</strong> |
+            <button onclick="clearCustomers()">Logout</button> |
+            <a href="register.html" style="color: #cfe0f6; text-decoration: underline;">Switch Profile</a>
+        </p>
+        `;
+    } else {
+        authStatus.innerHTML = `
+        <p style="margin: 0; color:rgb(248, 249, 252);">
+            🔒 Not registered? 
+            <a href="register.html" style="font-weight: bold; color:rgb(236, 235, 245); text-decoration: underline;">Create a profile</a> to save your card for future purchases.
+        </p>
+        `;
+    }
+}
 
 // Function to render the product cards
 function renderProducts() {
@@ -302,4 +333,7 @@ async function handlePayment() {
 }
 
 // On page load
-document.addEventListener('DOMContentLoaded', renderProducts);
+document.addEventListener('DOMContentLoaded', async() => {
+    renderProducts(),
+    updateCustomerStatus();
+});

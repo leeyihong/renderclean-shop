@@ -10,6 +10,11 @@
     <script src="https://js.braintreegateway.com/web/dropin/1.45.0/js/dropin.min.js"></script>
 </head>
 
+<header class="header">
+    <div id="auth-status">
+      <!-- Will be filled dynamically by JavaScript -->
+    </div>
+</header>
 <body class="p-6">
     <div class="max-w-6xl mx-auto">
         <header class="text-center mb-10">
@@ -23,7 +28,7 @@
         </main>
         
         <!-- Goodwill Donation Section -->
-        <section class="mt-12 p-8 bg-gray-100 rounded-2xl shadow-lg">
+        <section class="m-12 p-8 bg-gray-100 rounded-2xl shadow-lg">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Goodwill Donation</h2>
             <div class="flex flex-col sm:flex-row items-center justify-between bg-white p-6 rounded-xl shadow-md">
                 <span class="font-medium text-gray-700">Add a Goodwill Donation:</span>
@@ -98,5 +103,6 @@
     </div>
 
     <script src="client.js"></script>
+
 </body>
 </html>
